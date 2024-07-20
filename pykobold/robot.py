@@ -6,7 +6,6 @@ from datetime import datetime, timezone
 from email.utils import format_datetime
 
 import requests
-import urllib3
 from voluptuous import (
     ALLOW_EXTRA,
     All,
