@@ -5,7 +5,7 @@ with open("README.md", "r") as f:
 
 setup(
     name="pybotvac",
-    version="0.0.25",
+    version="0.0.1",
     description="Python package for controlling Neato pybotvac Connected vacuum robot",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -15,6 +15,5 @@ setup(
     license="Licensed under the MIT license. See LICENSE file for details",
     packages=["pybotvac"],
     package_dir={"pybotvac": "pybotvac"},
-    package_data={"pybotvac": ["cert/*.crt"]},
     install_requires=["requests", "requests_oauthlib", "voluptuous"],
 )

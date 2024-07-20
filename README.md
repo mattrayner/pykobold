@@ -1,7 +1,6 @@
-# pybotvac
-
+# pykobold
 This is an unofficial API for controlling Neato Botvac Connected vacuum robots.
-The code is based on https://github.com/kangguru/botvac and credit for reverse engineering the API goes to
+The code is based on https://github.com/Santobert/pybotvac and https://github.com/kangguru/botvac and credit for reverse engineering the API goes to
 [Lars Brillert @kangguru](https://github.com/kangguru)
 
 ## Disclaimer
@@ -11,7 +10,7 @@ This API is experimental. Use at your own risk. Feel free to contribute if thing
 Install using pip
 
 ```bash
-pip install pybotvac
+pip install pykobold
 ```
 
 Alternatively, clone the repository and run
@@ -25,7 +24,7 @@ python setup.py install
 If the serial and secret for your robot is known, simply run
 
 ```python
->>> from pybotvac import Robot
+>>> from pykobold import Robot
 >>> robot = Robot('OPS01234-0123456789AB', '0123456789ABCDEF0123456789ABCDEF', 'my_robot_name')
 >>> print(robot)
 Name: sample_robot, Serial: OPS01234-0123456789AB, Secret: 0123456789ABCDEF0123456789ABCDEF
@@ -78,7 +77,7 @@ It depends on your provider which session is suitable for you.
 * **PasswordlessSession** is known to work for users of the new MyKobold App. The only known `client_id` is `KY4YbVAvtgB7lp8vIbWQ7zLk3hssZlhR`.
 
 ```python
-from pybotvac import Account, Neato, OAuthSession, PasswordlessSession, PasswordSession, Vorwerk
+from pykobold import Account, Neato, OAuthSession, PasswordlessSession, PasswordSession, Vorwerk
 
 email = "Your email"
 password = "Your password"
@@ -90,7 +89,8 @@ redirect_uri = "Your redirect URI"
 password_session = PasswordSession(email=email, password=password, vendor=Neato())
 
 # Authenticate via OAuth2
-oauth_session = OAuthSession(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri, vendor=Neato())
+oauth_session = OAuthSession(client_id=client_id, client_secret=client_secret, redirect_uri=redirect_uri,
+                             vendor=Neato())
 authorization_url = oauth_session.get_authorization_url()
 print("Visit: " + authorization_url)
 authorization_response = input("Enter the full callback URL: ")
@@ -113,19 +113,20 @@ for robot in account.robots:
 Information about maps and download of maps can be done from the Account class:
 
 ```python
->>> from pybotvac import Account
->>> # List all maps associated with a specific robot
->>> for map_info in Account(PasswordSession('sample@email.com', 'sample_password')).maps:
-...     print(map_info)
+>> > from pykobold import Account
+>> >  # List all maps associated with a specific robot
+>> > for map_info in Account(PasswordSession('sample@email.com', 'sample_password')).maps:
+    ...
+print(map_info)
 ```
 
 A cleaning map can be downloaded with the account class. Returns the raw image response. Example shows latest map.
 You need the url from the map output to do that:
 
 ```python
->>> from pybotvac import Account
->>> # List all maps associated with a specific robot
->>> map = Account(PasswordSession('sample@email.com', 'sample_password')).maps
->>> download_link = map['robot_serial']['maps'][0]['url']
->>> Account('sample@email.com', 'sample_password').get_map_image(download_link)
+>> > from pykobold import Account
+>> >  # List all maps associated with a specific robot
+>> > map = Account(PasswordSession('sample@email.com', 'sample_password')).maps
+>> > download_link = map['robot_serial']['maps'][0]['url']
+>> > Account('sample@email.com', 'sample_password').get_map_image(download_link)
 ```

@@ -1,6 +1,6 @@
 import sys
 
-from pybotvac import (
+from pykobold import (
     Account,
     Neato,
     OAuthSession,
