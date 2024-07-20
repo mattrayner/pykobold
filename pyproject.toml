@@ -1,0 +1,41 @@
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pykobold"
+version = "0.0.1"
+authors = [
+    { name="Matt Rayner", email="hello@rayner.io" },
+]
+description = "Python package for controlling Neato pybotvac Connected vacuum robots"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "requests",
+    "requests_oauthlib",
+    "voluptuous",
+]
+
+[project.optional-dependencies]
+dev = ["bandit>=1", "black", "codespell>=2", "flake8>=3", "isort>=5", "pylint>=2.6"]
+
+[project.urls]
+Homepage = "https://github.com/mattrayner/pykobold"
+
+[tool.bumpver]
+current_version = "1.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message  = "Bump version {old_version} -> {new_version}"
+commit          = true
+tag             = true
+push            = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['current_version = "{version}"', 'version = "{version}"']
+"src/pykobold/__init__.py" = ["{version}"]

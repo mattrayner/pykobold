@@ -1,19 +1,3 @@
 from setuptools import setup
 
-with open("README.md", "r") as f:
-    long_description = f.read()
-
-setup(
-    name="pykobold",
-    version="0.0.1",
-    description="Python package for controlling Neato pybotvac Connected vacuum robot",
-    long_description=long_description,
-    long_description_content_type="text/markdown",
-    author="Stian Askeland",
-    author_email="stianaske@gmail.com",
-    url="https://github.com/mattrayner/pykobold",
-    license="Licensed under the MIT license. See LICENSE file for details",
-    packages=["pykobold"],
-    package_dir={"pykobold": "pykobold"},
-    install_requires=["requests", "requests_oauthlib", "voluptuous", "setuptools"],
-)
+setup()

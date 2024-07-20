@@ -24,10 +24,14 @@ python setup.py install
 If the serial and secret for your robot is known, simply run
 
 ```python
->>> from pykobold import Robot
->>> robot = Robot('OPS01234-0123456789AB', '0123456789ABCDEF0123456789ABCDEF', 'my_robot_name')
->>> print(robot)
-Name: sample_robot, Serial: OPS01234-0123456789AB, Secret: 0123456789ABCDEF0123456789ABCDEF
+>> > from src import Robot
+>> > robot = Robot('OPS01234-0123456789AB', '0123456789ABCDEF0123456789ABCDEF', 'my_robot_name')
+>> > print(robot)
+Name: sample_robot, Serial: OPS01234 - 01234567
+89
+AB, Secret: 01234567
+89
+ABCDEF0123456789ABCDEF
 ```
 
 The format of the serial should be 'OPSxxxxx-xxxxxxxxxxxx', and the secret should be a string of hex characters 32 characters long.
@@ -77,7 +81,7 @@ It depends on your provider which session is suitable for you.
 * **PasswordlessSession** is known to work for users of the new MyKobold App. The only known `client_id` is `KY4YbVAvtgB7lp8vIbWQ7zLk3hssZlhR`.
 
 ```python
-from pykobold import Account, Neato, OAuthSession, PasswordlessSession, PasswordSession, Vorwerk
+from src import Account, Neato, OAuthSession, PasswordlessSession, PasswordSession, Vorwerk
 
 email = "Your email"
 password = "Your password"
@@ -113,7 +117,7 @@ for robot in account.robots:
 Information about maps and download of maps can be done from the Account class:
 
 ```python
->> > from pykobold import Account
+>> > from src import Account
 >> >  # List all maps associated with a specific robot
 >> > for map_info in Account(PasswordSession('sample@email.com', 'sample_password')).maps:
     ...
@@ -124,7 +128,7 @@ A cleaning map can be downloaded with the account class. Returns the raw image r
 You need the url from the map output to do that:
 
 ```python
->> > from pykobold import Account
+>> > from src import Account
 >> >  # List all maps associated with a specific robot
 >> > map = Account(PasswordSession('sample@email.com', 'sample_password')).maps
 >> > download_link = map['robot_serial']['maps'][0]['url']

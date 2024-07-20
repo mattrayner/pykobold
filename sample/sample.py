@@ -1,6 +1,6 @@
 import sys
 
-from pykobold import (
+from src import (
     Account,
     Neato,
     OAuthSession,
