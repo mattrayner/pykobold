@@ -17,6 +17,6 @@ jobs:
       - run: codespell
       - run: black --check .
       - run: isort --check --diff .
-      - run: pylint pybotvac
-      - run: flake8 pybotvac
-      - run: bandit -r pybotvac
+      - run: pylint pykobold
+      - run: flake8 pykobold
+      - run: bandit -r pykobold
