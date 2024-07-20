@@ -15,5 +15,5 @@ setup(
     license="Licensed under the MIT license. See LICENSE file for details",
     packages=["pykobold"],
     package_dir={"pykobold": "pykobold"},
-    install_requires=["requests", "requests_oauthlib", "voluptuous"],
+    install_requires=["requests", "requests_oauthlib", "voluptuous", "setuptools"],
 )
